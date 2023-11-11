@@ -1,0 +1,25 @@
+.productCard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: var(--br);
+  background-color: orange;
+  height: 400px;
+  width: 300px;
+}
+
+.productCard-img {
+  border-radius: var(--br);
+  background-color: green;
+}
+
+.productCard-description {
+  border-radius: var(--br);
+  background-color: green;
+}
+
+.productCard-btns {
+  border-radius: var(--br);
+  display: flex;
+  background-color: green;
+}
