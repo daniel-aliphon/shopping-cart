@@ -1,18 +1,19 @@
 import React from "react";
 import { ProductCard } from "../../components/ProductCard";
+import { products } from "../..";
 
 export const Products = () => {
   return (
-    <div className=" max-w-7xl mx-auto flex gap-y-10 justify-between flex-wrap ">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+    <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-y-10">
+      {products.map((product) => (
+        <ProductCard
+          name={product.name}
+          description={product.description}
+          price={product.price}
+          stock={product.stock}
+          thumbnail={product.thumbnail}
+        />
+      ))}
     </div>
   );
 };
