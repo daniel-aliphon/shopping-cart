@@ -1,13 +1,8 @@
 import { ShoppingCart, X } from "lucide-react";
 import React, { useState } from "react";
+import { cart } from "./ProductCard";
 
-export const SidePanel = ({
-  notificationNumber,
-  notificationVisibility,
-}: {
-  notificationNumber: number;
-  notificationVisibility: boolean;
-}) => {
+export const SidePanel = () => {
   const [sidePannelVisiblity, setSidePannelVisiblity] = useState(false);
   const handleSideBarVisiblity = () =>
     setSidePannelVisiblity(!sidePannelVisiblity);
@@ -23,6 +18,12 @@ export const SidePanel = ({
             className="cursor-pointer"
             onClick={handleSideBarVisiblity}
           />
+          <br />
+          <ul>
+            {cart.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
         </div>
       </>
     );
@@ -32,9 +33,9 @@ export const SidePanel = ({
         onClick={handleSideBarVisiblity}
         className="relative cursor-pointer">
         <ShoppingCart />
-        {notificationVisibility ? (
+        {cart.length > 0 ? (
           <div className="absolute -left-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs text-white">
-            {notificationNumber}
+            {cart.length}
           </div>
         ) : null}
       </div>
