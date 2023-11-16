@@ -1,8 +1,6 @@
 import { ShoppingCart, X } from "lucide-react";
 import React, { useState } from "react";
-import { cart } from "./ProductCard";
-
-export const SidePanel = () => {
+export const SidePanel = ({ cart, removeItemFromCart }) => {
   const [sidePannelVisiblity, setSidePannelVisiblity] = useState(false);
   const handleSideBarVisiblity = () =>
     setSidePannelVisiblity(!sidePannelVisiblity);
@@ -20,8 +18,16 @@ export const SidePanel = () => {
           />
           <br />
           <ul>
-            {cart.map((item) => (
-              <li>{item}</li>
+            {cart.map((item, i) => (
+              <li
+                key={item}
+                className="flex justify-between p-2 group-hover:bg-red-500">
+                {item}
+                <X
+                  className="group cursor-pointer"
+                  onClick={removeItemFromCart(item)}
+                />
+              </li>
             ))}
           </ul>
         </div>

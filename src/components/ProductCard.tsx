@@ -1,11 +1,6 @@
 import { PlusIcon } from "lucide-react";
 import React from "react";
 
-export const cart: JSON[] = [];
-const a = () => {
-  console.log(cart);
-};
-
 export const ProductCard = ({
   name,
   description,
@@ -13,6 +8,7 @@ export const ProductCard = ({
   stock,
   thumbnail,
   product,
+  addItemToCart,
 }) => {
   return (
     <div className="relative flex max-w-xs flex-col overflow-hidden rounded-lg shadow-lg">
@@ -32,10 +28,7 @@ export const ProductCard = ({
       </div>
 
       <div
-        onClick={() => {
-          cart.push(name);
-          a();
-        }}
+        onClick={() => addItemToCart(name)}
         className="flex cursor-pointer items-center justify-center gap-3 bg-teal-300 p-3 font-semibold hover:text-white">
         Add to Cart <PlusIcon />
       </div>
